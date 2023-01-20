@@ -41,14 +41,14 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void dropUsersTable() {
-        String query = "DROP TABLE USER";
+        String query = "DROP TABLE IF EXISTS USER";
 
 
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate(query);
 
         } catch (SQLException e) {
-
+            throw new RuntimeException(e);
         }
 
     }
