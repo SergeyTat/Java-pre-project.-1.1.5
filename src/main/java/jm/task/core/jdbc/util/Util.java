@@ -28,8 +28,8 @@ public class Util {
     }
 
     public static SessionFactory getSessionFactory() {
-//        if (sessionFactory == null) {
-//            try {
+
+            try {
                 Configuration configuration = new Configuration();
 
                 // Hibernate settings equivalent to hibernate.cfg.xml's properties
@@ -54,10 +54,10 @@ public class Util {
                         .applySettings(configuration.getProperties()).build();
 
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         return sessionFactory;
     }
 
